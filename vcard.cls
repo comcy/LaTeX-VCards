@@ -16,12 +16,7 @@
 %\put( 7, 8){\small \Phone}
 %\put( 7.5, 3){\small \Envelope }
 }
-%\put( 5, 15){\color{uni}\line(4,0){36}}
-%\put( 7, 11){\small } % Firmenname
-%\put( 7, 7){\small } % Addresse 1
-%\put( 7, 3){\small } % Adresse 2
- % Pre-Info: Telefon
-%
+
 
 %% Default Texts:
 \newcommand{\@name}{Ihr Name}
@@ -41,30 +36,53 @@
 
 \newcounter{numcards}
 
-\newcommand{\printcardsinfo}[1][10]{%
+\newcommand{\printcardsstandard}[1][10]{%
 	\setcounter{numcards}{0}
 	\whiledo{\value{numcards}<#1}{%
 		\ticket{
+			%\put(60, 5){\includegraphics[width=30mm, origin=bl]{qr_code.jpg}} % if qr-code feature is wanted
 			\put(6, 44){\bfseries\LARGE\@name}
-			%\put(50, 5){\includegraphics[width=30mm, origin=bl]{qr_code.jpg}}
 			\put(7, 38){\@jobtitle}
 			\put(7, 33){\@degree}
-			\put(28, 8){\small \Phone}
-			\put(19, 3){\small \Envelope }
+			\put(28, 7.8){\small \Phone}
+			\put(28.2, 3){\small \Envelope }
 			\put(34, 8){\small\@phone}
-			\put(24, 4){\small\@mail}}
-			\stepcounter{numcards}
+			\put(34, 4){\small\@mail}
+		}
+		\stepcounter{numcards}
 	}
 }
 
-\newcommand{\printcardstitle}[1][10]{%
+\newcommand{\printcardslong}[1][10]{%
 	\setcounter{numcards}{0}
 	\whiledo{\value{numcards}<#1}{%
 		\ticket{
-			%\put(0, 0){\setBackgroundRect}			
-			\put(60, 3){\drawTerminalBottom{black}}
-			\put(2, 38){\bfseries\LARGE\@name,}
-			\put(2, 32){\bfseries\@degree}
+			%\put(60, 5){\includegraphics[width=30mm, origin=bl]{qr_code.jpg}} % if qr-code feature is wanted
+			\put(6, 44){\bfseries\LARGE\@name}
+			\put(6, 41.5){\rule{7cm}{0.8pt}} % rule 
+			%\put(6, 41.5){\line(1, 0){60}}	% line
+			\put(7, 38){\@jobtitle}
+			\put(7, 33){\@degree}
+			\put(28, 7.8){\small \Phone}
+			\put(28.2, 3){\small \Envelope }
+			\put(34, 8){\small\@phone}
+			\put(34, 4){\small\@mail}
+		}
+		\stepcounter{numcards}
+	}
+}
+
+
+\newcommand{\printcardsshort}[1][10]{%
+	\setcounter{numcards}{0}
+	\whiledo{\value{numcards}<#1}{%
+		\ticket{
+			\put(2, 38){\bfseries\LARGE\@name}
+			%\put(60, 5){\includegraphics[width=30mm, origin=bl]{qr_code.jpg}} % if qr-code feature is wanted
+			\put(28, 7.8){\small \Phone}
+			\put(28.2, 3){\small \Envelope }
+			\put(34, 8){\small\@phone}
+			\put(34, 4){\small\@mail}			
 		}
 		\stepcounter{numcards}
 	}
