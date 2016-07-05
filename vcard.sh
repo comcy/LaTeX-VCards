@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pdflatex vcard.tex
+pdflatex vcard_example.tex
